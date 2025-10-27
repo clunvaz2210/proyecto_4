@@ -2,12 +2,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Tecla } from './Tecla'
 
-interface TecladoProps {
-  pulsarLetra: (letra: string) => void;
-  letrasUsadas: string;
-}
 
-export default function Teclado({ pulsarLetra, letrasUsadas }: TecladoProps) {
+
+export default function Teclado({ pulsarLetra, letrasUsadas }) {
    const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
                   "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
