@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 
-export function Tecla(letra,pulsarLetra,usada){
+export function Tecla({letra,pulsarLetra,usada}){
 
     const [estilo,setEstilo] = useState(styles.Contenedor); 
     const [actividadTecla,setActividadTecla] = useState(false);

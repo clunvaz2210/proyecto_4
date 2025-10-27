@@ -19,8 +19,8 @@ export function Horca(vidas) {
     setImagenActual(vidas)
   }
 
-  useEffect(cambiarImagen,vidas)
-
+  useEffect(() =>{cambiarImagen()},[vidas])
+  
   return (
     <View>
       <Image
