@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Image } from 'expo-image'
 
-export function Horca(vidas) {
+export function Horca({vidas}) {
 
   const horca = [
     require("../assets/ahorcado_0.png"),
@@ -19,7 +19,7 @@ export function Horca(vidas) {
     setImagenActual(vidas)
   }
 
-  useEffect(cambiarImagen,vidas)
+  useEffect(() =>{cambiarImagen()},[vidas])
 
   return (
     <View>
