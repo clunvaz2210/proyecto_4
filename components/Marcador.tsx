@@ -18,7 +18,8 @@ export default function Marcador({victorias, derrotas}: MarcadorProps) {
 const styles = StyleSheet.create({
     contenedor:{
         flexDirection:"row",
-        alignContent:"space-between"
+        justifyContent:"space-between",
+        alignItems:"center",
     },
     texto:{
         fontSize:18
