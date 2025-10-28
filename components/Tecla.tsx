@@ -3,26 +3,23 @@ import React, { useState } from 'react'
 
 export function Tecla({letra,pulsarLetra,usada}){
 
-    const [estilo,setEstilo] = useState(styles.Contenedor); 
-    const [actividadTecla,setActividadTecla] = useState(false);
-
-    function ejecutarIntento (){
-        pulsarLetra(letra)
-        setEstilo(styles.Contenedor2)
-        setActividadTecla(true)
-    }
+    
 
   return (
     <View>
-      <Pressable style={estilo} disabled={actividadTecla} onPress={ejecutarIntento}>
-        <Text style={styles.Texto}>{letra}</Text>
-      </Pressable>
+      <Pressable 
+      style={usada ? styles.contenedorUsada : styles.contenedor} 
+      disabled={usada} 
+      onPress={pulsarLetra}
+    >
+      <Text style={styles.texto}>{letra.toUpperCase()}</Text>
+    </Pressable>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    Contenedor:{
+    contenedor:{
         width: 40,
         height:40,
         borderWidth: 1,
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
         borderColor: "#ccc",
         backgroundColor: "#fff"
     },
-    Contenedor2:{
+    contenedorUsada:{
         width: 40,
         height:40,
         borderWidth: 1,
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
         borderColor: "#999",
         backgroundColor: "#d3d3d3",
     },
-    Texto:{
+    texto:{
         alignSelf:"center",
         fontSize: 22,
         color: "#333",
