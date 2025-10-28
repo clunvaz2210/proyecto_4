@@ -16,7 +16,7 @@ export function Horca({vidas}) {
   const [imagenActual,setImagenActual] = useState(horca[vidas]);
 
   function cambiarImagen(){
-    setImagenActual(vidas)
+    setImagenActual(vidas+1)
   }
 
   useEffect(() =>{cambiarImagen()},[vidas])

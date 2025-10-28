@@ -46,7 +46,7 @@ export default function App() {
     setDerrotas(derrotas+1);
     Alert.alert(
       "Has perdido",
-      "La palabra era "+{},
+      "La palabra era "+palabra,
       [
         {
           text: "Nueva Partida",
@@ -56,6 +56,7 @@ export default function App() {
       { cancelable: false }
     )
   }
+
   function pulsarLetra(letra){
     setLetrasUsadas(letrasUsadas+letra);
     const intento = realizarIntento(display,palabra,letra);
@@ -66,7 +67,7 @@ export default function App() {
       }
     }else{
       setVidas(vidas-1);
-      if(vidas==0){
+      if(vidas==1){
         derrota()
       }
     }
