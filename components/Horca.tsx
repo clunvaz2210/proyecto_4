@@ -20,7 +20,11 @@ export function Horca({vidas}) {
   }
 
   useEffect(() =>{cambiarImagen()},[vidas])
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> origin/Carlos
   return (
     <View>
       <Image
