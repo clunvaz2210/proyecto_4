@@ -31,19 +31,27 @@ export function generarDisplayInicial(palabra:string){
 
 }
 
-export function realizarIntento(display:string,palabra:string,letra:string){
+export function realizarIntento(display,palabra,letra){
+    
     
     let cambio = false;
-    display = "";
+    const nuevoDisplay = [];
 
+    for(let i = 0; i<display.length; i++){
+        nuevoDisplay.push(display.charAt(i))
+    }
+    
     for(let i = 0;i<=palabra.length;i++){
         
         if(palabra.charAt(i)===letra){
-            display+=letra;
+            nuevoDisplay[i]=letra;
             cambio=true;
-        }else{
-            display+="-"
         }
     }
+    display=""
+    for(let i = 0; i<palabra.length;i++){
+        display+=nuevoDisplay[i]
+    }
+    
     return {cambio,display}
 }
