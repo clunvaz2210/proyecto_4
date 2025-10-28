@@ -14,7 +14,7 @@ export function generarPalabraAleatoria(){
 
     const palabra = (PALABRAS[categoria][numeroPalabra]);
 
-    palabra.toUpperCase()
+    palabra
 
     const objeto = {categoria,palabra}
 
