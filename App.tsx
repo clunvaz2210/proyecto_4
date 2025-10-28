@@ -116,4 +116,4 @@ const styles = StyleSheet.create({
     borderColor:"#d0d7de"
   }
 })
->>>>>>> origin/Carlos
+
