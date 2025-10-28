@@ -23,7 +23,7 @@ export function generarDisplayInicial(palabra:string){
     
     let display = "";
 
-    for(let i =0; i<=palabra.length; i++){
+    for(let i =0; i<palabra.length; i++){
         display+="-";
     }
     
