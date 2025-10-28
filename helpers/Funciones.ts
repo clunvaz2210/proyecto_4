@@ -27,7 +27,7 @@ export function generarDisplayInicial(palabra:string){
         display+="-";
     }
     
-    return display;
+    return display.toUpperCase;
 
 }
 
