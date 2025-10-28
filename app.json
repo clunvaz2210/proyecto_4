@@ -1,7 +1,12 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "proyecto_4",
     "slug": "proyecto_4",
+=======
+    "name": "Proyecto_4",
+    "slug": "Proyecto_4",
+>>>>>>> origin/integracion
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
