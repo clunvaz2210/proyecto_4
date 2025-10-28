@@ -20,7 +20,7 @@ export function Horca({vidas}) {
   }
 
   useEffect(() =>{cambiarImagen()},[vidas])
-
+  
   return (
     <View>
       <Image
