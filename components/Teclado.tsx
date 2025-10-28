@@ -13,7 +13,7 @@ export default function Teclado({ pulsarLetra, letrasUsadas }) {
           key={letra}
           letra={letra}
           pulsarLetra={() => pulsarLetra(letra)}
-          usada={false}
+          usada={letrasUsadas.includes(letra)}
         />
       ))}
     </View>

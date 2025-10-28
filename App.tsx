@@ -11,7 +11,7 @@ export default function App() {
   const [display, setDisplay] = useState<string>("");
   const [categoria, setCategoria] = useState<string>("");
   const [palabra, setPalabra] = useState<string>("");
-  const [letrasUsadas, setLetrasUsadas] = useState<string>("");
+  const [letrasUsadas, setLetrasUsadas] = useState<string[]>([]);
   const [victorias, setVictorias] = useState<number>(0);
   const [derrotas, setDerrotas] = useState<number>(0);
 
@@ -21,7 +21,8 @@ export default function App() {
     setCategoria(palabra.categoria);
     setPalabra(palabra.palabra);
     setDisplay(generarDisplayInicial(palabra.palabra));
-    setLetrasUsadas("");
+
+    setLetrasUsadas([]);
   }
   useEffect(inicializarPartida, []);
 
@@ -56,17 +57,27 @@ export default function App() {
   }
 
   function pulsarLetra(letra){
-    setLetrasUsadas(letrasUsadas+letra);
-    const intento = realizarIntento(display,palabra,letra);
+    // Evitar letras duplicadas
+    if(letrasUsadas.includes(letra)) return;
+    
+    setLetrasUsadas(prev => [...prev, letra]);
+    const intento = realizarIntento(display, palabra, letra);
+    
     if(intento.cambio){
-      setDisplay(intento.display);
-      if(intento.display==palabra){
-        victoria();
+      const nuevoDisplay = intento.display;
+      setDisplay(nuevoDisplay);
+      
+      // Verificar victoria
+      if(nuevoDisplay === palabra){
+        setTimeout(() => victoria(), 100);
       }
-    }else{
-      setVidas(vidas-1);
-      if(vidas==1){
-        derrota()
+    } else {
+      const nuevasVidas = vidas - 1;
+      setVidas(nuevasVidas);
+      
+      // Verificar derrota
+      if(nuevasVidas === 0){
+        setTimeout(() => derrota(), 100);
       }
     }
   }
@@ -75,8 +86,8 @@ export default function App() {
     <View style={styles.contenedor}>
       <Text style={styles.textoCategoria}>{categoria}</Text>
       <Horca vidas={vidas}/>
-      <Teclado pulsarLetra={pulsarLetra} letrasUsadas={letrasUsadas}/>
       <Text style={styles.textoDisplay}>{display}</Text>
+      <Teclado pulsarLetra={pulsarLetra} letrasUsadas={letrasUsadas}/>
       <Marcador victorias={victorias} derrotas={derrotas}/>
     </View>
   )
