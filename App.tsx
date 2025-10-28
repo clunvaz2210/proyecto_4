@@ -9,19 +9,10 @@ import { Tecla } from './components/Tecla';
 
 export default function App() {
   
-  function escribir(xd){
-    
-    console.log(""+xd)
-  }
-  const letra = "V"
 
   return (
     <SafeAreaView >
-      <Tecla
-      letra={letra}
-      pulsarLetra={() => {escribir(letra)}}
-      usada={false}
-      />
+      
     </SafeAreaView>
   );
 }
