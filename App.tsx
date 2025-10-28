@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import Marcador from './components/Marcador'
 import { Horca } from './components/Horca';
 import { generarPalabraAleatoria, generarDisplayInicial, realizarIntento } from './helpers/Funciones';
-import { Button } from 'react-native/types_generated/index';
 import Teclado from './components/Teclado';
 
 export default function App() {
@@ -78,7 +77,7 @@ export default function App() {
       <Text style={styles.textoCategoria}>{categoria}</Text>
       <Horca vidas={vidas}/>
       <Teclado pulsarLetra={pulsarLetra} letrasUsadas={letrasUsadas}/>
-      <Text>{display}</Text>
+      <Text style={styles.textoDisplay}>{display}</Text>
       <Marcador victorias={victorias} derrotas={derrotas}/>
     </View>
   )
