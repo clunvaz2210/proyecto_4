@@ -2,8 +2,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Tecla } from './Tecla'
 
-
-
 export default function Teclado({ pulsarLetra, letrasUsadas }) {
    const letras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
                   "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -12,6 +10,7 @@ export default function Teclado({ pulsarLetra, letrasUsadas }) {
     <View style={styles.contenedor}>
       {letras.map((letra) => (
         <Tecla
+          key={letra}
           letra={letra}
           pulsarLetra={() => pulsarLetra(letra)}
           usada={false}
@@ -23,7 +22,7 @@ export default function Teclado({ pulsarLetra, letrasUsadas }) {
 
 const styles = StyleSheet.create({
     contenedor:{
-        flex:1,
+        flexDirection:"row",
         flexWrap:"wrap",
         alignItems:"flex-start",
         paddingHorizontal:20,

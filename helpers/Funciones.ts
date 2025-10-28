@@ -18,7 +18,7 @@ export function generarPalabraAleatoria(){
 
     return objeto;
 }
-function generarDisplayInicial(palabra:string){
+export function generarDisplayInicial(palabra:string){
     
     let display = "";
 

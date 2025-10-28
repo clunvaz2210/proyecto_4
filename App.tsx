@@ -1,11 +1,85 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Alert, StyleSheet, Text, View } from 'react-native'
+import React, {useEffect, useState} from 'react'
 import Marcador from './components/Marcador'
+import { Horca } from './components/Horca';
+import { generarPalabraAleatoria, generarDisplayInicial, realizarIntento } from './helpers/Funciones';
+import { Button } from 'react-native/types_generated/index';
+import Teclado from './components/Teclado';
 
 export default function App() {
+
+  const [vidas, setVidas] = useState<number>(0);
+  const [display, setDisplay] = useState<string>("");
+  const [categoria, setCategoria] = useState<string>("");
+  const [palabra, setPalabra] = useState<string>("");
+  const [letrasUsadas, setLetrasUsadas] = useState<string>("");
+  const [victorias, setVictorias] = useState<number>(0);
+  const [derrotas, setDerrotas] = useState<number>(0);
+
+  function inicializarPartida() {
+    const palabra = generarPalabraAleatoria();
+    setVidas(6);
+    setCategoria(palabra.categoria);
+    setPalabra(palabra.palabra);
+    setDisplay(generarDisplayInicial(palabra.palabra));
+    setLetrasUsadas("");
+    setVictorias(0);
+    setDerrotas(0);
+  }
+  useEffect(inicializarPartida, []);
+
+  function victoria(){
+    setVictorias(victorias+1);
+    Alert.alert(
+      "Has ganado",
+      "",
+      [
+        {
+          text: "Nueva Partida",
+          onPress: () => inicializarPartida(),
+        }
+      ],
+      { cancelable: false }
+    )
+    
+  }
+  function derrota(){
+    setDerrotas(derrotas+1);
+    Alert.alert(
+      "Has perdido",
+      "La palabra era "+{},
+      [
+        {
+          text: "Nueva Partida",
+          onPress: () => inicializarPartida(),
+        }
+      ],
+      { cancelable: false }
+    )
+  }
+  function pulsarLetra(letra){
+    setLetrasUsadas(letrasUsadas+letra);
+    const intento = realizarIntento(display,palabra,letra);
+    if(intento.cambio){
+      setDisplay(intento.display);
+      if(intento.display==palabra){
+        victoria();
+      }
+    }else{
+      setVidas(vidas-1);
+      if(vidas==0){
+        derrota()
+      }
+    }
+  }
+
   return (
-    <View>
-      <Marcador victorias={3} derrotas={2}/>
+    <View style={styles.contenedor}>
+      <Text style={styles.textoCategoria}>{categoria}</Text>
+      <Horca vidas={vidas}/>
+      <Teclado pulsarLetra={pulsarLetra} letrasUsadas={letrasUsadas}/>
+      <Text>{display}</Text>
+      <Marcador victorias={victorias} derrotas={derrotas}/>
     </View>
   )
 }
