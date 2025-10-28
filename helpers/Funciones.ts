@@ -6,6 +6,7 @@ export function getCategorias(){
 }
 
 export function generarPalabraAleatoria(){
+    
     const numeroCategoria = Math.floor(Math.random() * getCategorias.length)
 
     const categoria = getCategorias()[numeroCategoria]
