@@ -6,7 +6,6 @@ export function getCategorias(){
 }
 
 export function generarPalabraAleatoria(){
-    
     const numeroCategoria = Math.floor(Math.random() * getCategorias.length)
 
     const categoria = getCategorias()[numeroCategoria]
@@ -19,6 +18,7 @@ export function generarPalabraAleatoria(){
 
     return objeto;
 }
+
 export function generarDisplayInicial(palabra:string){
     
     let display = "";
@@ -30,6 +30,7 @@ export function generarDisplayInicial(palabra:string){
     return display;
 
 }
+
 export function realizarIntento(display:string,palabra:string,letra:string){
     
     let cambio = false;
