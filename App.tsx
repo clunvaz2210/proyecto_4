@@ -22,8 +22,6 @@ export default function App() {
     setPalabra(palabra.palabra);
     setDisplay(generarDisplayInicial(palabra.palabra));
     setLetrasUsadas("");
-    setVictorias(0);
-    setDerrotas(0);
   }
   useEffect(inicializarPartida, []);
 
