@@ -8,8 +8,6 @@ import { Tecla } from './components/Tecla';
 
 
 export default function App() {
-  
-
   return (
     <SafeAreaView >
       
