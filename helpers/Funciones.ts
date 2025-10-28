@@ -12,7 +12,9 @@ export function generarPalabraAleatoria(){
 
     const numeroPalabra = Math.floor(Math.random() * PALABRAS[categoria].length);
 
-    const palabra = PALABRAS[categoria][numeroPalabra];
+    const palabra = (PALABRAS[categoria][numeroPalabra]);
+
+    palabra.toUpperCase()
 
     const objeto = {categoria,palabra}
 
@@ -27,7 +29,8 @@ export function generarDisplayInicial(palabra:string){
         display+="-";
     }
     
-    return display.toUpperCase;
+    
+    return display;
 
 }
 
